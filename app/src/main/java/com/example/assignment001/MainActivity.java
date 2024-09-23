@@ -1,5 +1,6 @@
 package com.example.assignment001;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -34,9 +35,18 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.myTextView);
         ImageView imageView = findViewById(R.id.myImageView);
         Button button = findViewById(R.id.myButton);
+        Button as2 = findViewById(R.id.as2Button);
         TextView toggleText = findViewById(R.id.toggleText);
 
 
+        as2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(MainActivity.this, FinanceTracker.class);
+                startActivity(intent);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
