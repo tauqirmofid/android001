@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Primary Color for Buttons and Accents -->
+    <color name="primaryColor">#6200EE</color> <!-- Replace with your preferred color code -->
+
+    <!-- Background Color for the Main Layout -->
+    <color name="light_background">#F5F5F5</color> <!-- Soft, light background color -->
+
+    <!-- Text Color for Headings -->
+    <color name="primaryTextColor">#212121</color> <!-- Dark text color -->
+
+    <!-- Border Color for Input Fields -->
+    <color name="borderColor">#BDBDBD</color> <!-- Light gray border color -->
+    <color name="button_color_default">#2196F3</color> <!-- Blue color -->
+    <color name="button_color_pressed">#1976D2</color>
 </resources>

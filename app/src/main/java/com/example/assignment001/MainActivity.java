@@ -16,9 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     private boolean isColorChanged = false;
     private boolean isImageToggled = false;
     private boolean isTextClicked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +39,28 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.myImageView);
         Button button = findViewById(R.id.myButton);
         Button as2 = findViewById(R.id.as2Button);
+        Button as3 = findViewById(R.id.as3Button);
+        Button as4 = findViewById(R.id.as4Button);
         TextView toggleText = findViewById(R.id.toggleText);
 
 
+        as4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(MainActivity.this, Assignment4.class);
+                startActivity(intent);
+            }
+        });
+
+        as3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(MainActivity.this, Assignment3.class);
+                startActivity(intent);
+            }
+        });
         as2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

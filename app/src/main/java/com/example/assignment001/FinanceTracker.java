@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,16 +25,18 @@ public class FinanceTracker extends AppCompatActivity {
     private RatingBar satisfactionRatingBar;
     private SeekBar spendingLimitSeekBar;
     private TextView spendingLimitTextView;
+    private Switch convertToUsdSwitch;
     private Button submitButton;
 
     private ArrayList<String> selectedCategories = new ArrayList<>();
     private AlertDialog.Builder builder;
 
+    private static final double USD_CONVERSION_RATE = 0.011; // Example conversion rate from BDT to USD
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_tracker);
-
 
         checkFood = findViewById(R.id.check_food);
         checkTransportation = findViewById(R.id.check_transportation);
@@ -42,15 +45,15 @@ public class FinanceTracker extends AppCompatActivity {
         satisfactionRatingBar = findViewById(R.id.rating_bar);
         spendingLimitSeekBar = findViewById(R.id.seek_bar);
         spendingLimitTextView = findViewById(R.id.spendLimitTextView);
+        convertToUsdSwitch = findViewById(R.id.switch_convert_to_usd);
         submitButton = findViewById(R.id.submit_button);
 
         builder = new AlertDialog.Builder(this);
 
-
         spendingLimitSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                spendingLimitTextView.setText("Monthly Spending Limit: BDT : " + progress);
+                updateSpendingLimitText(progress);
             }
 
             @Override
@@ -60,7 +63,21 @@ public class FinanceTracker extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
 
+        convertToUsdSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            int progress = spendingLimitSeekBar.getProgress();
+            updateSpendingLimitText(progress);
+        });
+
         submitButton.setOnClickListener(v -> showSummaryDialog());
+    }
+
+    private void updateSpendingLimitText(int progress) {
+        if (convertToUsdSwitch.isChecked()) {
+            double usdAmount = progress * USD_CONVERSION_RATE;
+            spendingLimitTextView.setText(String.format("Monthly Spending Limit: USD %.2f", usdAmount));
+        } else {
+            spendingLimitTextView.setText("Monthly Spending Limit: BDT " + progress);
+        }
     }
 
     private void showSummaryDialog() {
@@ -95,6 +112,7 @@ public class FinanceTracker extends AppCompatActivity {
         paymentMethodGroup.clearCheck();
         satisfactionRatingBar.setRating(0);
         spendingLimitSeekBar.setProgress(0);
+        convertToUsdSwitch.setChecked(false);
         spendingLimitTextView.setText("Monthly Spending Limit: BDT0");
         Toast.makeText(getApplicationContext(), "Form Reset!", Toast.LENGTH_SHORT).show();
     }
