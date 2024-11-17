@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="@color/light_background"
+    tools:context=".Assignment3">
+
+    <!-- Header Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/primaryTextColor" />
+
+    <!-- Input Fields Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        app:layout_constraintBottom_toTopOf="@+id/inputLayout"
+        android:layout_marginBottom="-35dp"
+
+
+
+        >
+
+
+        <ImageView
+            android:id="@+id/closeButton"
+            android:layout_width="47dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+
+            android:focusable="true"
+            android:foregroundGravity="right"
+            android:padding="4dp"
+            android:src="@drawable/ic_close_red" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/input_container_background"
+        android:elevation="5dp">
+
+
+
+        <!-- Name Input -->
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="text"
+            android:padding="16dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginBottom="12dp" />
+
+        <!-- ID Input -->
+        <EditText
+            android:id="@+id/sId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="number"
+            android:padding="16dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Email Input -->
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Mobile Number Input -->
+        <EditText
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Password Input with Material Design -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:background="@drawable/input_field_background" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Dropdown Spinner -->
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/primaryColor"
+            android:padding="12dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/outputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Output Text -->
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Button to Return to Log In Page -->
+        <Button
+            android:id="@+id/backToLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Log In"
+            android:layout_marginTop="20dp" />
+
+        <!-- Button to Go to Home Page (MainActivity) -->
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Home Page"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+</LinearLayout>

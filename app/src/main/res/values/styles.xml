@@ -1,0 +1,7 @@
+<resources>
+    <!-- Custom theme for transparent dialog -->
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
